@@ -503,7 +503,7 @@ Effects 'Conditions of Magic Combat' by 40%"
                   :step1="100"
                   :step2="1000"
                   :min="0"
-                  :max="2000"
+                  :max="9000"
                   :editable="false"
                 >
                   <template slot="title">
