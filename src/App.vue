@@ -574,7 +574,7 @@ Effects 'Spiritual Mixing' Mechanic"
                     <span>{{subtitle(expertise.crafts)}}</span>
                   </template>
                 </multistep-number-input>
-                                <multistep-number-input
+                <multistep-number-input
                   v-model="expertise.firearmsKnowledge"
                   :step1="100"
                   :step2="1000"
@@ -686,6 +686,13 @@ Effects 'Support Bullet' by 40%"
         </div>
       </div>
     </section>
+    <b-button
+      type="is-primary"
+      size="is-large"
+      icon-left="link"
+      @click="showGenerateLinkModal"
+      class="fixed"
+    >Generate Link</b-button>
   </div>
 </template>
 
@@ -693,6 +700,7 @@ Effects 'Support Bullet' by 40%"
 import Options from "@/components/Options.vue";
 import ChainExpertise from "@/components/ChainExpertise.vue";
 import MultistepNumberInput from "@/components/MultistepNumberInput.vue";
+import GenerateLinkModal from "@/components/GenerateLinkModal.vue";
 export default {
   name: "App",
   components: {
@@ -841,7 +849,7 @@ export default {
           ref.expertise.medicalSciences = parsed * 100;
           break;
         case "ex":
-          ref.expertise.crushingTechniques = parsed * 100;
+          ref.expertise.crushingTechnique = parsed * 100;
           break;
         case "ey":
           ref.expertise.mineralogy = parsed * 100;
@@ -939,6 +947,18 @@ export default {
       } else {
         return "- Class 0 Rank " + b.charAt(0);
       }
+    },
+    showGenerateLinkModal() {
+      this.$buefy.modal.open({
+        parent: this,
+        component: GenerateLinkModal,
+        width: 680,
+        hasModalCard: true,
+        props: {
+          options: this.expertiseOptions,
+          expertise: this.expertise
+        }
+      });
     }
   },
   computed: {
@@ -962,7 +982,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .force-newline.b-tooltip.is-multiline:after {
   white-space: pre;
 }
@@ -973,5 +993,11 @@ p.progress-value {
 section.tab-content {
   border: 1px solid #dbdbdb;
   border-top: 0px;
+}
+
+.fixed {
+  position: fixed;
+  right: 5vw;
+  bottom: 5vh;
 }
 </style>
