@@ -681,7 +681,7 @@ Effects 'Support Bullet' by 40%"
           </div>
           <div class="column is-three-fifths">
             <h2 class="title">Summary</h2>
-            <chain-expertise :expertise="this.expertise" />
+            <chain-expertise :expertise="this.expertise" :options="this.expertiseOptions" />
           </div>
         </div>
       </div>
