@@ -182,11 +182,6 @@ export default {
   },
   data() {
     return {
-      islevelTenDDS1: false,
-      islevelTenDDS2: false,
-      islevelTenDDS3: false,
-      islevelTenDDS4: false,
-      islevelTenDDS5: false
     };
   },
   methods: {

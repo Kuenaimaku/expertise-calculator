@@ -499,6 +499,118 @@ Effects 'Conditions of Magic Combat' by 40%"
                   </template>
                 </multistep-number-input>
                 <multistep-number-input
+                  v-model="expertise.blades"
+                  :step1="100"
+                  :step2="1000"
+                  :min="0"
+                  :max="7200"
+                  :editable="false"
+                >
+                  <template slot="title">
+                    <span class="has-text-primary option-title">Blades</span>
+                    <b-tooltip
+                      multilined
+                      class="force-newline"
+                      type="is-dark"
+                      label="Effects 'Swordsmith' by 80%
+Effects 'Spiritual Mixing' Mechanic"
+                    >
+                      <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+                    </b-tooltip>
+                    <span>{{subtitle(expertise.blades)}}</span>
+                  </template>
+                </multistep-number-input>
+                <multistep-number-input
+                  v-model="expertise.sketching"
+                  :step1="100"
+                  :step2="1000"
+                  :min="0"
+                  :max="8000"
+                  :editable="false"
+                >
+                  <template slot="title">
+                    <span class="has-text-primary option-title">Sketching</span>
+                    <b-tooltip type="is-dark" label="Effects 'Craftsmanship' by 20%">
+                      <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+                    </b-tooltip>
+                    <span>{{subtitle(expertise.sketching)}}</span>
+                  </template>
+                </multistep-number-input>
+                <multistep-number-input
+                  v-model="expertise.creation"
+                  :step1="100"
+                  :step2="1000"
+                  :min="0"
+                  :max="5000"
+                  :editable="false"
+                >
+                  <template slot="title">
+                    <span class="has-text-primary option-title">Creation</span>
+                    <b-tooltip type="is-dark" label="Effects 'Craftsmanship' by 60%">
+                      <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+                    </b-tooltip>
+                    <span>{{subtitle(expertise.creation)}}</span>
+                  </template>
+                </multistep-number-input>
+                <multistep-number-input
+                  v-model="expertise.crafts"
+                  :step1="100"
+                  :step2="1000"
+                  :min="0"
+                  :max="7200"
+                  :editable="false"
+                >
+                  <template slot="title">
+                    <span class="has-text-primary option-title">Crafts</span>
+                    <b-tooltip
+                      multilined
+                      class="force-newline"
+                      type="is-dark"
+                      label="Effects 'Arms Maker' by 80%
+Effects 'Spiritual Mixing' Mechanic"
+                    >
+                      <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+                    </b-tooltip>
+                    <span>{{subtitle(expertise.crafts)}}</span>
+                  </template>
+                </multistep-number-input>
+                                <multistep-number-input
+                  v-model="expertise.firearmsKnowledge"
+                  :step1="100"
+                  :step2="1000"
+                  :min="0"
+                  :max="0"
+                  :editable="false"
+                >
+                  <template slot="title">
+                    <span class="has-text-primary option-title">Firearms Knowledge</span>
+                    <span>{{subtitle(expertise.firearmsKnowledge)}}</span>
+                  </template>
+                </multistep-number-input>
+                <multistep-number-input
+                  v-model="expertise.gunKnowledge"
+                  :step1="100"
+                  :step2="1000"
+                  :min="0"
+                  :max="9000"
+                  :editable="false"
+                >
+                  <template slot="title">
+                    <span class="has-text-primary option-title">Gun Knowledge</span>
+                    <b-tooltip
+                      multilined
+                      class="force-newline"
+                      type="is-dark"
+                      label="Effects 'Magic Bullet' by 40%
+Effects 'Sharpshooter' by 20%
+Effects 'Spiritual Mixing' Mechanic"
+                    >
+                      <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+                    </b-tooltip>
+                    <span>{{subtitle(expertise.gunKnowledge)}}</span>
+                  </template>
+                </multistep-number-input>
+                <multistep-number-input
                   v-model="expertise.pursuit"
                   :step1="100"
                   :step2="1000"
@@ -512,6 +624,53 @@ Effects 'Conditions of Magic Combat' by 40%"
                       <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
                     </b-tooltip>
                     <span>{{subtitle(expertise.pursuit)}}</span>
+                  </template>
+                </multistep-number-input>
+                <multistep-number-input
+                  v-model="expertise.magicControl"
+                  :step1="100"
+                  :step2="1000"
+                  :min="0"
+                  :max="9000"
+                  :editable="false"
+                >
+                  <template slot="title">
+                    <span class="has-text-primary option-title">Magic Control</span>
+                    <b-tooltip
+                      multilined
+                      class="force-newline"
+                      type="is-dark"
+                      label="Effects 'Conditions of Magic Combat' by 40%
+Effects 'Curse of the Wretched' by 20%
+Effects 'Magic Bullet' by 20%
+Effects 'Magic Fist' by 40%"
+                    >
+                      <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+                    </b-tooltip>
+                    <span>{{subtitle(expertise.magicControl)}}</span>
+                  </template>
+                </multistep-number-input>
+                <multistep-number-input
+                  v-model="expertise.bless"
+                  :step1="100"
+                  :step2="1000"
+                  :min="0"
+                  :max="9000"
+                  :editable="false"
+                >
+                  <template slot="title">
+                    <span class="has-text-primary option-title">Bless</span>
+                    <b-tooltip
+                      multilined
+                      class="force-newline"
+                      type="is-dark"
+                      label="Effects 'Curse of the Wretched' by 20%
+Effects 'Enhancement' by 30%
+Effects 'Support Bullet' by 40%"
+                    >
+                      <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+                    </b-tooltip>
+                    <span>{{subtitle(expertise.bless)}}</span>
                   </template>
                 </multistep-number-input>
               </b-tab-item>
@@ -544,6 +703,7 @@ export default {
   data() {
     return {
       activeTab: 0,
+      params: null,
       expertiseFloor: 17000,
       expertiseOptions: {
         level: 1,
@@ -584,7 +744,7 @@ export default {
         survivalTechniques: 0,
         psychology: 0,
         medicalSciences: 0,
-        crushingTechniques: 0,
+        crushingTechnique: 0,
         mineralogy: 0,
         biology: 0,
         botany: 0,
@@ -593,6 +753,7 @@ export default {
         blades: 0,
         sketching: 0,
         creation: 0,
+        crafts: 0,
         firearmsKnowledge: 0,
         gunKnowledge: 0,
         pursuit: 0,
@@ -600,6 +761,172 @@ export default {
         bless: 0
       }
     };
+  },
+  created() {
+    let uri = window.location.search.substring(0);
+    this.params = new URLSearchParams(uri);
+  },
+  beforeMount() {
+    let ref = this;
+    this.params.forEach(function(value, key) {
+      var parsed = Number.parseInt(value);
+      switch (key.toLowerCase()) {
+        case "ea":
+          ref.expertise.attack = parsed * 100;
+          break;
+        case "eb":
+          ref.expertise.spin = parsed * 100;
+          break;
+        case "ec":
+          ref.expertise.rush = parsed * 100;
+          break;
+        case "ed":
+          ref.expertise.shot = parsed * 100;
+          break;
+        case "ee":
+          ref.expertise.rapid = parsed * 100;
+          break;
+        case "ef":
+          ref.expertise.guard = parsed * 100;
+          break;
+        case "eg":
+          ref.expertise.counter = parsed * 100;
+          break;
+        case "eh":
+          ref.expertise.dodge = parsed * 100;
+          break;
+        case "ei":
+          ref.expertise.curativeMagic = parsed * 100;
+          break;
+        case "ej":
+          ref.expertise.destructionMagic = parsed * 100;
+          break;
+        case "ek":
+          ref.expertise.supportMagic = parsed * 100;
+          break;
+        case "el":
+          ref.expertise.curseMagic = parsed * 100;
+          break;
+        case "em":
+          ref.expertise.talk = parsed * 100;
+          break;
+        case "en":
+          ref.expertise.threaten = parsed * 100;
+          break;
+        case "eo":
+          ref.expertise.taunt = parsed * 100;
+          break;
+        case "ep":
+          ref.expertise.summon = parsed * 100;
+          break;
+        case "eq":
+          ref.expertise.occultism = parsed * 100;
+          break;
+        case "er":
+          ref.expertise.fusion = parsed * 100;
+          break;
+        case "es":
+          ref.expertise.demonology = parsed * 100;
+          break;
+        case "et":
+          ref.expertise.weaponKnowledge = parsed * 100;
+          break;
+        case "eu":
+          ref.expertise.survivalTechniques = parsed * 100;
+          break;
+        case "ev":
+          ref.expertise.psychology = parsed * 100;
+          break;
+        case "ew":
+          ref.expertise.medicalSciences = parsed * 100;
+          break;
+        case "ex":
+          ref.expertise.crushingTechniques = parsed * 100;
+          break;
+        case "ey":
+          ref.expertise.mineralogy = parsed * 100;
+          break;
+        case "ez":
+          ref.expertise.biology = parsed * 100;
+          break;
+        case "eaa":
+          ref.expertise.botany = parsed * 100;
+          break;
+        case "eab":
+          ref.expertise.mechanicalEngineering = parsed * 100;
+          break;
+        case "eac":
+          ref.expertise.informationEngineering = parsed * 100;
+          break;
+        case "ead":
+          ref.expertise.blades = parsed * 100;
+          break;
+        case "eae":
+          ref.expertise.sketching = parsed * 100;
+          break;
+        case "eaf":
+          ref.expertise.creation = parsed * 100;
+          break;
+        case "eag":
+          ref.expertise.crafts = parsed * 100;
+          break;
+        case "eah":
+          ref.expertise.firearmsKnowledge = parsed * 100;
+          break;
+        case "eai":
+          ref.expertise.gunKnowledge = parsed * 100;
+          break;
+        case "eaj":
+          ref.expertise.pursuit = parsed * 100;
+          break;
+        case "eak":
+          ref.expertise.magicControl = parsed * 100;
+          break;
+        case "eal":
+          ref.expertise.bless = parsed * 100;
+          break;
+        //Expertise Options
+        case "oa":
+          ref.expertiseOptions.level = parsed;
+          break;
+        case "ob":
+          ref.expertiseOptions.casino = parsed * 1000;
+          break;
+        case "oc":
+          ref.expertiseOptions.specialTraining = parsed * 1000;
+          break;
+        case "od":
+          ref.expertiseOptions.tierOneDDS = parsed * 1000;
+          break;
+        case "oe":
+          ref.expertiseOptions.tierTwoDDS = parsed * 1000;
+          break;
+        case "of":
+          ref.expertiseOptions.tierThreeDDS = parsed * 1000;
+          break;
+        case "og":
+          ref.expertiseOptions.levelTenDDS1 = parsed * 1000;
+          break;
+        case "oh":
+          ref.expertiseOptions.levelTenDDS2 = parsed * 1000;
+          break;
+        case "oi":
+          ref.expertiseOptions.levelTenDDS3 = parsed * 1000;
+          break;
+        case "oj":
+          ref.expertiseOptions.levelTenDDS4 = parsed * 1000;
+          break;
+        case "ok":
+          ref.expertiseOptions.levelTenDDS5 = parsed * 1000;
+          break;
+        case "ol":
+          ref.expertiseOptions.diaspora = parsed * 1000;
+          break;
+        case "om":
+          ref.expertiseOptions.saintGermain = parsed * 1000;
+          break;
+      }
+    });
   },
   methods: {
     subtitle(amount) {
