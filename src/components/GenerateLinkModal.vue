@@ -251,9 +251,9 @@ export default {
         }
       }
       if(params.toString() !== ""){
-          return "https://kuenaimaku.com?" + params.toString()
+          return "https://expertise.kuenaimaku.com?" + params.toString()
       }else{
-            return "https://kuenaimaku.com"
+            return "https://expertise.kuenaimaku.com"
       }
     }
   }
