@@ -163,6 +163,19 @@
           v-model="options.saintGermain.value"
         />
       </b-field>
+            <b-field>
+        <template slot="label">
+          <span class="has-text-primary option-title">Fighting Spirits</span>
+        </template>
+        <b-numberinput
+          min="0"
+          max="4000"
+          step="1000"
+          controls-position="compact"
+          expanded
+          v-model="options.fightingSpirits.value"
+        />
+      </b-field>
     </section>
   </div>
 </template>

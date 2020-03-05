@@ -5,13 +5,6 @@
         <div class="container">
           <h1 class="title">Expertise Calculator</h1>
           <p class="subtitle">For REImagine</p>
-          <b-progress
-            :type="progressType"
-            size="is-large"
-            :value="currentExpertise"
-            :max="expertiseFloor + bonusExpertise"
-            show-value
-          >{{currentExpertise}}/{{(expertiseFloor + bonusExpertise)}}</b-progress>
         </div>
       </div>
     </section>
@@ -30,9 +23,25 @@
             </b-tabs>
           </div>
           <div class="column is-three-fifths">
-            <h2 class="title is-2">Summary</h2>
-            <expertise-list :expertise="Object.values(this.expertise)"/>
-            <!-- <chain-expertise :expertise="this.expertise" :options="this.options" /> -->
+            <div class="is-sticky">
+              <h2 class="title is-2">Summary</h2>
+              <div class="box">
+                <h4 class="title is-4">Expertise Limit</h4>
+                <b-progress
+                  :type="progressType"
+                  size="is-large"
+                  :value="currentExpertise"
+                  :max="expertiseFloor + bonusExpertise"
+                  show-value
+                >{{currentExpertise}}/{{(expertiseFloor + bonusExpertise)}}</b-progress>
+                <section class="section box">
+                  <expertise-list :expertise="Object.values(this.expertise)" />
+                </section>
+                <section class="section box">
+                  <chain-expertise-list :expertise="this.expertise" :options="this.options" />
+                </section>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -49,13 +58,13 @@
 
 <script>
 //Services
-import QueryParamTranslator from "@/services/queryParamTranslator"
+import QueryParamTranslator from "@/services/queryParamTranslator";
 
 //Components
 import Options from "@/components/Options.vue";
-import Expertise from "@/components/Expertise.vue"
-import ExpertiseList from "@/components/layout/ExpertiseList.vue"
-// import ChainExpertise from "@/components/ChainExpertise.vue";
+import Expertise from "@/components/Expertise.vue";
+import ExpertiseList from "@/components/layout/ExpertiseList.vue";
+import ChainExpertiseList from "@/components/layout/ChainExpertiseList.vue";
 import GenerateLinkModal from "@/components/GenerateLinkModal.vue";
 export default {
   name: "App",
@@ -63,7 +72,7 @@ export default {
     Expertise,
     ExpertiseList,
     Options,
-    // ChainExpertise
+    ChainExpertiseList
   },
   data() {
     return {
@@ -99,47 +108,55 @@ export default {
       const values = Object.values(this.expertise);
       let e = 0;
       values.forEach(function(v) {
-        e += v.value
-      })
+        e += v.value;
+      });
       return e;
     },
     progressType() {
-      if (this.currentExpertise <= this.expertiseFloor + this.bonusExpertise) return "is-warning";
+      if (this.currentExpertise <= this.expertiseFloor + this.bonusExpertise)
+        return "is-warning";
       else return "is-danger";
     },
     bonusExpertise() {
       const values = Object.values(this.options);
       let e = 0;
       values.forEach(function(v) {
-        e += v.value
-      })
+        e += v.value;
+      });
       e -= this.options.level.value;
-      e *= 1000;
-      if(this.options.level.value !== 1){
+      if (this.options.level.value !== 1) {
         e += Math.floor(this.options.level.value / 10) * 1000;
       }
-      if(this.options.level.value === 99){
+      if (this.options.level.value === 99) {
         e += 1000;
       }
-      return e
+      return e;
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
-p.progress-value {
+<style lang="scss">
+.progress-value {
   color: #222 !important;
 }
 
 section.tab-content {
   border: 1px solid #dbdbdb;
   border-top: 0px;
+  border-radius: 6px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .fixed {
-  position: fixed;
+  position: fixed !important;
   right: 5vw;
   bottom: 5vh;
+}
+
+.is-sticky {
+  position: sticky;
+  top: 2vh;
 }
 </style>

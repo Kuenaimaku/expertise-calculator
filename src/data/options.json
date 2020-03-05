@@ -63,5 +63,10 @@
         "name": "St. Germain Quests",
         "queryParam": "om",
         "value": 0
+    },
+    "fightingSpirits": {
+        "name": "Fighting Spirits",
+        "queryParam": "on",
+        "value": 0
     }
 }
