@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import QueryParamTranslator from "@/services/queryParamTranslator.js";
+import dataService from "@/services/dataService.js";
 export default {
   props: {
     expertise: {
@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     link() {
-      let params = QueryParamTranslator.toQueryParams(
+      let params = dataService.toQueryParams(
         this.expertise,
         this.options
       );

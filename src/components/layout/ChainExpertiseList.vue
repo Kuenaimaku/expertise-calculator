@@ -6,11 +6,23 @@
       </template>
       <b-switch size="is-small" v-model="hideLocked">Hide Locked Chain Expertise</b-switch>
     </b-field>
+    <arms-maker :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <conditions-magic :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <conditions-melee :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <conditions-ranged :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <craftsmanship :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
     <curse-of-the-wretched :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <enhancement :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <magic-bullet :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
     <magic-fist :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
     <three-forms :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
     <miitama :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
     <rampage :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <retaliation :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <sharpshooter :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <support-bullet :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <swordsmith :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
+    <synthesis :expertise="this.expertise" :options="this.options" :hideLocked="this.hideLocked" />
   </div>
 </template>
 <script>
@@ -19,6 +31,18 @@ import MagicFist from "@/components/singletons/MagicFist"
 import Miitama from "@/components/singletons/Miitama"
 import CurseOfTheWretched from "@/components/singletons/CurseOfTheWretched"
 import ThreeForms from "@/components/singletons/ThreeForms"
+import Synthesis from "@/components/singletons/Synthesis"
+import Enhancement from "@/components/singletons/Enhancement"
+import SupportBullet from "@/components/singletons/SupportBullet"
+import MagicBullet from "@/components/singletons/MagicBullet"
+import Sharpshooter from "@/components/singletons/Sharpshooter"
+import Retaliation from "@/components/singletons/Retaliation"
+import ConditionsMelee from "@/components/singletons/ConditionsMelee"
+import ConditionsMagic from "@/components/singletons/ConditionsMagic"
+import ConditionsRanged from "@/components/singletons/ConditionsRanged"
+import Swordsmith from "@/components/singletons/Swordsmith"
+import ArmsMaker from "@/components/singletons/ArmsMaker"
+import Craftsmanship from "@/components/singletons/Craftsmanship"
 
 export default {
   name: "ChainExpertiseList",
@@ -27,7 +51,19 @@ export default {
     MagicFist,
     Miitama,
     CurseOfTheWretched,
-    ThreeForms
+    ThreeForms,
+    Synthesis,
+    Enhancement,
+    SupportBullet,
+    MagicBullet,
+    Sharpshooter,
+    Retaliation,
+    ConditionsMelee,
+    ConditionsMagic,
+    ConditionsRanged,
+    Swordsmith,
+    ArmsMaker,
+    Craftsmanship
   },
   props: {
     expertise: {

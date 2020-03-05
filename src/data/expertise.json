@@ -174,8 +174,8 @@
         "tooltip": "Effects 'Miitama Demon Growth Science' by 40%",
         "tooltipMultiline": false
     },
-    "medicalScience": {
-        "name": "Medical Science",
+    "medicalSciences": {
+        "name": "Medical Sciences",
         "queryParam": "ew",
         "value": 0,
         "max": 6000,

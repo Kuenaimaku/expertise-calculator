@@ -4,18 +4,23 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
-    name="Miitama Demon Growth Science"
+    name="Sharpshooter"
   >
     <template slot="content">
       <p>
-        <span class="option-title">Demonology</span>: minimum Class 3 Rank 0.
-        <span class="option-title">60%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.demonology.value * 0.6)}})
+        <span class="option-title">Shot</span>: minimum Class 2 Rank 0.
+        <span class="option-title">40%</span>
+        is converted to Chain Expertise ({{parseExpertise(expertise.shot.value * 0.4)}})
       </p>
       <p>
-        <span class="option-title">Psychology</span>: minimum Class 2 Rank 0.
+        <span class="option-title">Demonology</span>: minimum Class 2 Rank 0.
         <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.psychology.value * 0.4)}})
+        is converted to Chain Expertise ({{parseExpertise(expertise.demonology.value * 0.4)}})
+      </p>
+      <p>
+        <span class="option-title">Gun Knowledge</span>: minimum Class 1 Rank 0
+        <span class="option-title">20%</span>
+        is converted to Chain Expertise ({{parseExpertise(expertise.gunKnowledge.value * 0.2)}})
       </p>
     </template>
   </chain-expertise>
@@ -24,7 +29,7 @@
 <script>
 import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
-  name: "MiitamaDemonGrowthScience",
+  name: "Sharpshooter",
   components: {
     ChainExpertise
   },
@@ -59,18 +64,19 @@ export default {
     isVisible() {
       if (!this.hideLocked) return true;
       else if (
-        this.expertise.rush.value >= 1000 &&
-        this.expertise.destructionMagic.value >= 1000 &&
-        this.expertise.magicControl.value >= 1000
+        this.expertise.shot.value >= 2000 &&
+        this.expertise.demonology.value >= 2000 &&
+        this.expertise.gunKnowledge.value >= 1000
       )
         return true;
       else return false;
     },
     classRank() {
-      let demonology = this.expertise.demonology.value * 0.6;
-      let psychology = this.expertise.psychology.value * 0.4;
+      let shot = this.expertise.shot.value * 0.4;
+      let demonology = this.expertise.curseMagic.value * 0.4;
+      let gunKnowledge = this.expertise.gunKnowledge.value * 0.2;
 
-      var a = Number.parseInt(Math.min(demonology + psychology, 7200)) / 100;
+      var a = Number.parseInt(shot + demonology + gunKnowledge) / 100;
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
