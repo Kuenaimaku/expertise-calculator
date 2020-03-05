@@ -53,6 +53,15 @@
       @click="showGenerateLinkModal"
       class="fixed"
     >Generate Link</b-button>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Expertise Calculator</strong> by
+          <a href="https://github.com/kuenaimaku">Kuenaimaku</a>. The <a href="https://github.com/Kuenaimaku/expertise-calculator">source code</a> is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -137,6 +146,42 @@ export default {
 </script>
 
 <style lang="scss">
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// Set your colors
+$primary: #8c67ef;
+$primary-invert: findColorInvert($primary);
+$twitter: #4099FF;
+$twitter-invert: findColorInvert($twitter);
+
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: (
+    "white": ($white, $black),
+    "black": ($black, $white),
+    "light": ($light, $light-invert),
+    "dark": ($dark, $dark-invert),
+    "primary": ($primary, $primary-invert),
+    "info": ($info, $info-invert),
+    "success": ($success, $success-invert),
+    "warning": ($warning, $warning-invert),
+    "danger": ($danger, $danger-invert),
+    "twitter": ($twitter, $twitter-invert)
+);
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+//footer
+$footer-color: true;
+$footer-background-color: $dark-invert;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
 .progress-value {
   color: #222 !important;
 }
