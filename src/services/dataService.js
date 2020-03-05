@@ -1,5 +1,6 @@
 import ExpertiseDefaults from "@/data/expertise.json"
 import OptionDefaults from "@/data/options.json"
+import _ from 'lodash'
 export default {
     toQueryParams(expertiseList, optionsList){
         var urlParams = new URLSearchParams();
@@ -19,30 +20,40 @@ export default {
         return urlParams.toString();
     },
     fromQueryParams(url){
-        Object.keys(ExpertiseDefaults).forEach(function(item) {
-            let queryValue = url.get(ExpertiseDefaults[item].queryParam)
+        let ed = _.cloneDeep(ExpertiseDefaults)
+        Object.keys(ed).forEach(function(item) {
+            let queryValue = url.get(ed[item].queryParam)
             if (queryValue !== null){
                 let hydrated = Number.parseInt(queryValue) * 100
-                ExpertiseDefaults[item].value = hydrated;
+                ed[item].value = hydrated;
             }
         })
 
-        Object.keys(OptionDefaults).forEach(function(item) {
-            let queryValue = url.get(OptionDefaults[item].queryParam)
+        let od = _.cloneDeep(OptionDefaults)
+        Object.keys(od).forEach(function(item) {
+            let queryValue = url.get(od[item].queryParam)
             if (queryValue !== null){
-                if (OptionDefaults[item].name === "Level"){
+                if (od[item].name === "Level"){
                     let hydrated = Number.parseInt(queryValue)
-                    OptionDefaults[item].value = hydrated;
+                    od[item].value = hydrated;
                 } else {
                     let hydrated = Number.parseInt(queryValue) * 1000
-                    OptionDefaults[item].value = hydrated;
+                    od[item].value = hydrated;
                 }
             }
         })
         
         var response = {
-            expertise: ExpertiseDefaults,
-            options: OptionDefaults
+            expertise: ed,
+            options: od
+        }
+        return response
+    },
+
+    reset(){
+        var response = {
+            expertise: _.cloneDeep(ExpertiseDefaults),
+            options: _.cloneDeep(OptionDefaults)
         }
         return response
     },

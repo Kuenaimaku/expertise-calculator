@@ -46,18 +46,27 @@
         </div>
       </div>
     </section>
-    <b-button
-      type="is-primary"
-      size="is-large"
-      icon-left="link"
-      @click="showGenerateLinkModal"
-      class="fixed"
-    >Generate Link</b-button>
+    <section class="fixed">
+      <b-field grouped>
+        <p class="control">
+          <b-button
+            type="is-primary"
+            size="is-large"
+            icon-left="link"
+            @click="showGenerateLinkModal"
+          >Generate Link</b-button>
+        </p>
+        <p class="control">
+          <b-button type="is-primary" size="is-large" icon-left="refresh" @click="resetValues">Reset</b-button>
+        </p>
+      </b-field>
+    </section>
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
           <strong>Expertise Calculator</strong> by
-          <a href="https://github.com/kuenaimaku">Kuenaimaku</a>. The <a href="https://github.com/Kuenaimaku/expertise-calculator">source code</a> is licensed
+          <a href="https://github.com/kuenaimaku">Kuenaimaku</a>. The
+          <a href="https://github.com/Kuenaimaku/expertise-calculator">source code</a> is licensed
           <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
         </p>
       </div>
@@ -67,7 +76,7 @@
 
 <script>
 //Services
-import QueryParamTranslator from "@/services/queryParamTranslator";
+import dataService from "@/services/dataService";
 
 //Components
 import Options from "@/components/Options.vue";
@@ -94,7 +103,7 @@ export default {
   created() {
     let uri = window.location.search.substring(0);
     let params = new URLSearchParams(uri);
-    let hydratedValues = QueryParamTranslator.fromQueryParams(params);
+    let hydratedValues = dataService.fromQueryParams(params);
     this.expertise = hydratedValues.expertise;
     this.options = hydratedValues.options;
   },
@@ -110,6 +119,11 @@ export default {
           expertise: this.expertise
         }
       });
+    },
+    resetValues() {
+      let hydratedValues = dataService.reset();
+      this.expertise = hydratedValues.expertise;
+      this.options = hydratedValues.options;
     }
   },
   computed: {
@@ -152,21 +166,51 @@ export default {
 // Set your colors
 $primary: #8c67ef;
 $primary-invert: findColorInvert($primary);
-$twitter: #4099FF;
+$twitter: #4099ff;
 $twitter-invert: findColorInvert($twitter);
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
-    "white": ($white, $black),
-    "black": ($black, $white),
-    "light": ($light, $light-invert),
-    "dark": ($dark, $dark-invert),
-    "primary": ($primary, $primary-invert),
-    "info": ($info, $info-invert),
-    "success": ($success, $success-invert),
-    "warning": ($warning, $warning-invert),
-    "danger": ($danger, $danger-invert),
-    "twitter": ($twitter, $twitter-invert)
+  "white": (
+    $white,
+    $black
+  ),
+  "black": (
+    $black,
+    $white
+  ),
+  "light": (
+    $light,
+    $light-invert
+  ),
+  "dark": (
+    $dark,
+    $dark-invert
+  ),
+  "primary": (
+    $primary,
+    $primary-invert
+  ),
+  "info": (
+    $info,
+    $info-invert
+  ),
+  "success": (
+    $success,
+    $success-invert
+  ),
+  "warning": (
+    $warning,
+    $warning-invert
+  ),
+  "danger": (
+    $danger,
+    $danger-invert
+  ),
+  "twitter": (
+    $twitter,
+    $twitter-invert
+  )
 );
 
 // Links

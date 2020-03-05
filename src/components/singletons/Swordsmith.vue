@@ -4,18 +4,18 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
-    name="Miitama Demon Growth Science"
+    name="Swordsmith"
   >
     <template slot="content">
       <p>
-        <span class="option-title">Demonology</span>: minimum Class 3 Rank 0.
-        <span class="option-title">60%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.demonology.value * 0.6)}})
+        <span class="option-title">Blades</span>: minimum Class 1 Rank 0.
+        <span class="option-title">80%</span>
+        is converted to Chain Expertise ({{parseExpertise(expertise.blades.value * 0.8)}})
       </p>
       <p>
-        <span class="option-title">Psychology</span>: minimum Class 2 Rank 0.
-        <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.psychology.value * 0.4)}})
+        <span class="option-title">Weapon Knowledge</span>: minimum Class 2 Rank 0.
+        <span class="option-title">20%</span>
+        is converted to Chain Expertise ({{parseExpertise(expertise.weaponKnowledge.value * 0.2)}})
       </p>
     </template>
   </chain-expertise>
@@ -24,7 +24,7 @@
 <script>
 import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
-  name: "MiitamaDemonGrowthScience",
+  name: "Swordsmith",
   components: {
     ChainExpertise
   },
@@ -59,18 +59,17 @@ export default {
     isVisible() {
       if (!this.hideLocked) return true;
       else if (
-        this.expertise.rush.value >= 1000 &&
-        this.expertise.destructionMagic.value >= 1000 &&
-        this.expertise.magicControl.value >= 1000
+        this.expertise.blades.value >= 1000 &&
+        this.expertise.weaponKnowledge.value >= 1000
       )
         return true;
       else return false;
     },
     classRank() {
-      let demonology = this.expertise.demonology.value * 0.6;
-      let psychology = this.expertise.psychology.value * 0.4;
+      let blades = this.expertise.blades.value * 0.8;
+      let weaponKnowledge = this.expertise.weaponKnowledge.value * 0.2;
 
-      var a = Number.parseInt(Math.min(demonology + psychology, 7200)) / 100;
+      var a = Number.parseInt(blades + weaponKnowledge) / 100;
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";

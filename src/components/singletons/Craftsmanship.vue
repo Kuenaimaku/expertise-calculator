@@ -4,18 +4,23 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
-    name="Miitama Demon Growth Science"
+    name="Craftsmanship"
   >
     <template slot="content">
       <p>
-        <span class="option-title">Demonology</span>: minimum Class 3 Rank 0.
+        <span class="option-title">Creation</span>: minimum Class 1 Rank 0.
         <span class="option-title">60%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.demonology.value * 0.6)}})
+        is converted to Chain Expertise ({{parseExpertise(expertise.creation.value * 0.6)}})
       </p>
       <p>
-        <span class="option-title">Psychology</span>: minimum Class 2 Rank 0.
-        <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.psychology.value * 0.4)}})
+        <span class="option-title">Medical Sciences</span>: minimum Class 2 Rank 0.
+        <span class="option-title">20%</span>
+        is converted to Chain Expertise ({{parseExpertise(expertise.medicalSciences.value * 0.2)}})
+      </p>
+            <p>
+        <span class="option-title">Sketching</span>:
+        <span class="option-title">20%</span>
+        is converted to Chain Expertise ({{parseExpertise(expertise.sketching.value * 0.2)}})
       </p>
     </template>
   </chain-expertise>
@@ -24,7 +29,7 @@
 <script>
 import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
-  name: "MiitamaDemonGrowthScience",
+  name: "Craftsmanship",
   components: {
     ChainExpertise
   },
@@ -59,18 +64,18 @@ export default {
     isVisible() {
       if (!this.hideLocked) return true;
       else if (
-        this.expertise.rush.value >= 1000 &&
-        this.expertise.destructionMagic.value >= 1000 &&
-        this.expertise.magicControl.value >= 1000
+        this.expertise.creation.value >= 1000 &&
+        this.expertise.medicalSciences.value >= 2000
       )
         return true;
       else return false;
     },
     classRank() {
-      let demonology = this.expertise.demonology.value * 0.6;
-      let psychology = this.expertise.psychology.value * 0.4;
+      let creation = this.expertise.creation.value * 0.6;
+      let medicalSciences = this.expertise.medicalSciences.value * 0.2;
+      let sketching = this.expertise.sketching.value * 0.2;
 
-      var a = Number.parseInt(Math.min(demonology + psychology, 7200)) / 100;
+      var a = Number.parseInt(creation + medicalSciences + sketching) / 100;
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";

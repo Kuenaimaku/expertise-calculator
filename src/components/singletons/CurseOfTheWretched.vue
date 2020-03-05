@@ -34,7 +34,7 @@
 <script>
 import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
-  name: "Rampage",
+  name: "CurseOfTheWretched",
   components: {
     ChainExpertise
   },
