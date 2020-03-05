@@ -2,12 +2,12 @@
   <div id="options">
     <section class="container">
       <multistep-number-input
-        v-model="options.level"
+        v-model="options.level.value"
         :editable="false"
         :step1="1"
         :step2="10"
         :min="1"
-        :max="97">
+        :max="99">
         <template slot="title">
           <span class="has-text-primary option-title">Level</span>
         </template>
@@ -22,7 +22,7 @@
           step="1000"
           controls-position="compact"
           expanded
-          v-model="options.casino"
+          v-model="options.casino.value"
         />
       </b-field>
       <b-field>
@@ -35,7 +35,7 @@
           step="1000"
           controls-position="compact"
           expanded
-          v-model="options.specialTraining"
+          v-model="options.specialTraining.value"
         />
       </b-field>
       <b-field>
@@ -53,7 +53,7 @@
           step="1000"
           controls-position="compact"
           expanded
-          v-model="options.tierOneDDS"
+          v-model="options.tierOneDDS.value"
         />
       </b-field>
       <b-field>
@@ -71,7 +71,7 @@
           step="1000"
           controls-position="compact"
           expanded
-          v-model="options.tierTwoDDS"
+          v-model="options.tierTwoDDS.value"
         />
       </b-field>
       <b-field>
@@ -89,7 +89,7 @@
           step="1000"
           controls-position="compact"
           expanded
-          v-model="options.tierThreeDDS"
+          v-model="options.tierThreeDDS.value"
         />
       </b-field>
       <b-field>
@@ -99,7 +99,7 @@
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS1" true-value=3000 false-value=0 />
+        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS1.value" true-value=3000 false-value=0 />
       </b-field>
       <b-field>
         <p class="control option-title">
@@ -108,7 +108,7 @@
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS2" true-value=3000 false-value=0 />
+        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS2.value" true-value=3000 false-value=0 />
       </b-field>
       <b-field>
         <p class="control option-title">
@@ -117,7 +117,7 @@
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS3" true-value=3000 false-value=0 />
+        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS3.value" true-value=3000 false-value=0 />
       </b-field>
       <b-field>
         <p class="control option-title">
@@ -126,7 +126,7 @@
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS4" true-value=3000 false-value=0 />
+        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS4.value" true-value=3000 false-value=0 />
       </b-field>
       <b-field>
         <p class="control option-title">
@@ -135,7 +135,7 @@
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS5" true-value=3000 false-value=0 />
+        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS5.value" true-value=3000 false-value=0 />
       </b-field>
       <b-field>
         <template slot="label">
@@ -147,7 +147,7 @@
           step="1000"
           controls-position="compact"
           expanded
-          v-model="options.diaspora"
+          v-model="options.diaspora.value"
         />
       </b-field>
       <b-field>
@@ -160,7 +160,7 @@
           step="1000"
           controls-position="compact"
           expanded
-          v-model="options.saintGermain"
+          v-model="options.saintGermain.value"
         />
       </b-field>
     </section>
@@ -183,11 +183,7 @@ export default {
   data() {
     return {
     };
-  },
-  methods: {
-  },
-  computed: {
-  },
+  }
 };
 </script>
 
