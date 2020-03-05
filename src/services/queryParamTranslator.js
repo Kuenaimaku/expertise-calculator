@@ -19,7 +19,6 @@ export default {
         return urlParams.toString();
     },
     fromQueryParams(url){
-        console.log(url);
         Object.keys(ExpertiseDefaults).forEach(function(item) {
             let queryValue = url.get(ExpertiseDefaults[item].queryParam)
             if (queryValue !== null){
