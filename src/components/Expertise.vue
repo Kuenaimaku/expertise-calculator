@@ -19,8 +19,7 @@
         <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
       </b-tooltip>
       <b-tooltip
-        v-elseif="!expertise.tooltipMultiline && expertise.tooltip !== null"
-        multilined
+        v-else-if="!expertise.tooltipMultiline && expertise.tooltip !== null"
         class="force-newline"
         type="is-dark"
         :label="expertise.tooltip"
@@ -38,6 +37,12 @@ export default {
   name: "Expertise",
   data() {
     return {};
+  },
+  props: {
+    expertise: {
+      type: Object,
+      required: true
+    }
   },
   components: {
     MultistepNumberInput
