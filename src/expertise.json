@@ -1,0 +1,297 @@
+[
+    {
+        "name": "Attack",
+        "queryParam": "ea",
+        "value": 0,
+        "max": 9000,
+        "tooltip": "Effects 'Rampage' by 20%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "SPin",
+        "queryParam": "eb",
+        "value": 0,
+        "max": 7000,
+        "tooltip": "Effects 'Rampage' by 20%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Rush",
+        "queryParam": "ec",
+        "value": 0,
+        "max": 7000,
+        "tooltip": "Effects 'Rampage' by 20%\nEffects 'Magic Fist' by 30%",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Shot",
+        "queryParam": "ed",
+        "value": 0,
+        "max": 9000,
+        "tooltip": "Effects 'Magic Bullet' by 30%\nEffects 'Sharpshooter' by 40%",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Rapid",
+        "queryParam": "ee",
+        "value": 0,
+        "max": 8000,
+        "tooltip": "Effects 'Support Bullet' by 20%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Guard",
+        "queryParam": "ef",
+        "value": 0,
+        "max": 9000,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Counter",
+        "queryParam": "eg",
+        "value": 0,
+        "max": 9000,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Dodge",
+        "queryParam": "eh",
+        "value": 0,
+        "max": 9000,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Curative Magic",
+        "queryParam": "ei",
+        "value": 0,
+        "max": 10000,
+        "tooltip": "Effects 'Enhancement' by 30%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Destruction Magic",
+        "queryParam": "ej",
+        "value": 0,
+        "max": 10000,
+        "tooltip": "Effects 'Curse of the Wretched' by 10%\nEffects 'Magic Fist' by 30%",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Support Magic",
+        "queryParam": "ek",
+        "value": 0,
+        "max": 8000,
+        "tooltip": "Effects 'Enhancement' by 40%\nEffects 'Support Bullet' by 40%",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Curse Magic",
+        "queryParam": "el",
+        "value": 0,
+        "max": 8000,
+        "tooltip": "Effects 'Curse of the Wretched' by 50%\nEffects 'Magic Bullet' by 10%",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Talk",
+        "queryParam": "em",
+        "value": 0,
+        "max": 2000,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Threaten",
+        "queryParam": "en",
+        "value": 0,
+        "max": 2000,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Taunt",
+        "queryParam": "eo",
+        "value": 0,
+        "max": 2000,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Summon",
+        "queryParam": "ep",
+        "value": 0,
+        "max": 9000,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Occultism",
+        "queryParam": "eq",
+        "value": 0,
+        "max": 7000,
+        "tooltip": "Effects 'Synthesis' by 40%"
+    },
+    {
+        "name": "Fusion",
+        "queryParam": "er",
+        "value": 0,
+        "max": 10000,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Demonology",
+        "queryParam": "es",
+        "value": 0,
+        "max": 7000,
+        "tooltip": "Effects 'Miitama Demon Growth Science' by 60%\nEffects 'Sharpshooter' by 40%\nEffects 'Synthesis' by 40%",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Weapon Knowledge",
+        "queryParam": "et",
+        "value": 0,
+        "max": 9000,
+        "tooltip": "Effects 'Retaliation' by 40%\nEffects 'Swordsmith' by 20%\nEffects 'Synthesis' by 20%\nUsed in 'Spiritual Mixing' Mechanic",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Survival Techniques",
+        "queryParam": "eu",
+        "value": 0,
+        "max": 7000,
+        "tooltip": "Effects 'Retaliation' by 40%\nUsed in 'Spiritual Mixing' Mechanic",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Psychology",
+        "queryParam": "ev",
+        "value": 0,
+        "max": 10000,
+        "tooltip": "Effects 'Miitama Demon Growth Science' by 40%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Medical Science",
+        "queryParam": "ew",
+        "value": 0,
+        "max": 6000,
+        "tooltip": "Effects 'Craftsmanship' by 20%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Crushing Technique",
+        "queryParam": "ex",
+        "value": 0,
+        "max": 10000,
+        "tooltip": "Effects 'Conditions of Melee Combat' by 40%\nEffects 'Conditions of Ranged Combat' by 40%\nEffects 'Conditions of Magic Combat' by 40%",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Mineralogy",
+        "queryParam": "ey",
+        "value": 0,
+        "max": 10000,
+        "tooltip": "Effects 'Synthesis' by 10%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Biology",
+        "queryParam": "ez",
+        "value": 0,
+        "max": 7000,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Mechanical Engineering",
+        "queryParam": "eaa",
+        "value": 0,
+        "max": 0,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Information Engineering",
+        "queryParam": "eab",
+        "value": 0,
+        "max": 0,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Blades",
+        "queryParam": "eac",
+        "value": 0,
+        "max": 7200,
+        "tooltip": "Effects 'Swordsmith' by 80%\nUsed in 'Spiritual Mixing' Mechanic",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Sketching",
+        "queryParam": "ead",
+        "value": 0,
+        "max": 8000,
+        "tooltip": "Effects 'Craftsmanship' by 20%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Creation",
+        "queryParam": "eae",
+        "value": 0,
+        "max": 5000,
+        "tooltip": "Effects 'Craftsmanship' by 60%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Crafts",
+        "queryParam": "eaf",
+        "value": 0,
+        "max": 7200,
+        "tooltip": "Effects 'Arms Maker' by 80%\nUsed in 'Spiritual Mixing' Mechanic",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Firearms Knowledge",
+        "queryParam": "eag",
+        "value": 0,
+        "max": 0,
+        "tooltip": null,
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Gun Knowledge",
+        "queryParam": "eah",
+        "value": 0,
+        "max": 9000,
+        "tooltip": "Effects 'Magic Bullet' by 40%\nEffects 'Sharpshooter' by 20%\nUsed in 'Spiritual Mixing' Mechanic",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Pursuit",
+        "queryParam": "eai",
+        "value": 0,
+        "max": 9000,
+        "tooltip": "Effects 'Rampage' by 40%",
+        "tooltipMultiline": false
+    },
+    {
+        "name": "Magic Control",
+        "queryParam": "eaj",
+        "value": 0,
+        "max": 9000,
+        "tooltip": "Effects 'Conditions of Magic Combat' by 40%\nEffects 'Curse of the Wretched' by 20%\nEffects 'Magic Bullet' by 20%\nEffects 'Magic Fist' by 40%",
+        "tooltipMultiline": true
+    },
+    {
+        "name": "Bless",
+        "queryParam": "eak",
+        "value": 0,
+        "max": 9000,
+        "tooltip": "Effects 'Curse of the Wretched' by 20%\nEffects 'Enhancement' by 30%\nEffects 'Support Bullet' by 40%",
+        "tooltipMultiline": true
+    }
+]
