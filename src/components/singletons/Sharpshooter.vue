@@ -91,7 +91,7 @@ export default {
     },
     classRank() {
       let shot = this.expertise.shot.value * 0.4;
-      let demonology = this.expertise.curseMagic.value * 0.4;
+      let demonology = this.expertise.demonology.value * 0.4;
       let gunKnowledge = this.expertise.gunKnowledge.value * 0.2;
 
       var a = Number.parseInt(shot + demonology + gunKnowledge) / 100;
