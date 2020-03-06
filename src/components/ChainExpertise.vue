@@ -1,12 +1,7 @@
 <template>
   <div id="chain-expertise">
     <b-collapse class="card" v-if="visible" :open="false">
-      <div
-        slot="trigger"
-        slot-scope="props"
-        class="card-header"
-        role="button"
-      >
+      <div slot="trigger" slot-scope="props" class="card-header" role="button">
         <p class="card-header-title">
           <span class="option-title">{{name}}</span>
           - {{classRank}}
@@ -18,9 +13,14 @@
       </div>
       <div class="card-content">
         <div class="content">
-          <slot v-if="$slots.content" name="content"/>
+          <slot v-if="$slots.content" name="content" />
         </div>
       </div>
+      <footer class="card-footer">
+        <a href="#" class="card-footer-item" @click.prevent="setValues('zero')">Set to Zero</a>
+        <a href="#" class="card-footer-item" @click.prevent="setValues('required')">Set to Required</a>
+        <a href="#" class="card-footer-item" @click.prevent="setValues('max')">Set to Max</a>
+      </footer>
     </b-collapse>
   </div>
 </template>
@@ -53,115 +53,19 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
+    },
+    setValues(to) {
+      this.$emit("setValues", to);
+    },
   },
   computed: {
-    hasMagicFist() {
-      if (!this.hideLocked) return true;
-      else if (
-        this.expertise.rush >= 1000 &&
-        this.expertise.destructionMagic >= 1000 &&
-        this.expertise.magicControl >= 1000
-      )
-        return true;
-      else return false;
-    },
-    magicFistValue() {
-      let rush = this.expertise.rush * 0.3;
-      let destructionMagic = this.expertise.destructionMagic * 0.3;
-      let magicControl = this.expertise.magicControl * 0.4;
-
-      var a = Number.parseInt(rush + destructionMagic + magicControl) / 100;
-      var b = a.toString();
-      if (a === 0) {
-        return "Class 0 Rank 0";
-      } else if (a >= 10) {
-        return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
-      } else {
-        return "Class 0 Rank " + b.charAt(0);
-      }
-    },
-    hasMiitama() {
-      if (!this.hideLocked) return true;
-      else if (
-        this.expertise.demonology >= 3000 &&
-        this.expertise.psychology >= 2000
-      )
-        return true;
-      else return false;
-    },
-    miitamaValue() {
-      let demonology = this.expertise.demonology * 0.6;
-      let psychology = this.expertise.psychology * 0.4;
-
-      var a = Number.parseInt(Math.min(demonology + psychology, 7200)) / 100;
-      var b = a.toString();
-      if (a === 0) {
-        return "Class 0 Rank 0";
-      } else if (a >= 10) {
-        return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
-      } else {
-        return "Class 0 Rank " + b.charAt(0);
-      }
-    },
-    hasCotw() {
-      if (!this.hideLocked) return true;
-      else if (
-        this.expertise.destructionMagic >= 1000 &&
-        this.expertise.curseMagic >= 2000 &&
-        this.expertise.magicControl >= 1000 &&
-        this.expertise.bless >= 1000
-      )
-        return true;
-      else return false;
-    },
-    cotwValue() {
-      let destructionMagic = this.expertise.destructionMagic * 0.1;
-      let curseMagic = this.expertise.curseMagic * 0.5;
-      let magicControl = this.expertise.magicControl * 0.2;
-      let bless = this.expertise.bless * 0.2;
-
-      var a =
-        Number.parseInt(destructionMagic + curseMagic + magicControl + bless) /
-        100;
-      var b = a.toString();
-      if (a === 0) {
-        return "Class 0 Rank 0";
-      } else if (a >= 10) {
-        return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
-      } else {
-        return "Class 0 Rank " + b.charAt(0);
-      }
-    },
-    hasThreeForms() {
-      if (!this.hideLocked) return true;
-      else if (this.options.level >= 98) return true;
-      else return false;
-    },
-    threeFormsValue() {
-      let weaponKnowledge = this.expertise.weaponKnowledge * 0.2;
-      let gunKnowledge = this.expertise.gunKnowledge * 0.2;
-      let magicControl = this.expertise.magicControl * 0.2;
-      let bless = this.expertise.bless * 0.2;
-
-      var a =
-        Number.parseInt(
-          Math.min(weaponKnowledge + gunKnowledge + magicControl + bless, 6600)
-        ) / 100;
-      var b = a.toString();
-      if (a === 0) {
-        return "Class 0 Rank 0";
-      } else if (a >= 10) {
-        return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
-      } else {
-        return "Class 0 Rank " + b.charAt(0);
-      }
-    }
   },
   data() {
     return {
@@ -180,5 +84,9 @@ export default {
   font-weight: bold;
   font-size: 1.1em;
   color: #7957d5;
+}
+
+.collapse.card {
+  margin: 1em auto;
 }
 </style>

@@ -4,6 +4,7 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
+    @setValues="setValues"
     name="Miitama Demon Growth Science"
   >
     <template slot="content">
@@ -48,10 +49,24 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
+      }
+    },
+        setValues(to) {
+      if(to === "zero"){
+        this.expertise.demonology.value = 0 
+        this.expertise.psychology.value = 0
+      }else if (to === "required"){
+        this.expertise.demonology.value = 3000 
+        this.expertise.psychology.value = 2000
+      }else if (to === "max"){
+        this.expertise.demonology.value = this.expertise.demonology.max 
+        this.expertise.psychology.value = this.expertise.psychology.max 
       }
     }
   },
@@ -59,9 +74,8 @@ export default {
     isVisible() {
       if (!this.hideLocked) return true;
       else if (
-        this.expertise.rush.value >= 1000 &&
-        this.expertise.destructionMagic.value >= 1000 &&
-        this.expertise.magicControl.value >= 1000
+        this.expertise.demonology.value >= 3000 &&
+        this.expertise.psychology.value >= 2000
       )
         return true;
       else return false;
@@ -74,6 +88,8 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {

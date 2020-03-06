@@ -4,6 +4,7 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
+    @setValues="setValues"
     name="Retaliation"
   >
     <template slot="content">
@@ -53,10 +54,27 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
+      }
+    },
+    setValues(to) {
+      if (to === "zero") {
+        this.expertise.attack.value = 0;
+        this.expertise.weaponKnowledge.value = 0;
+        this.expertise.survivalTechniques.value = 0;
+      } else if (to === "required") {
+        this.expertise.attack.value = 2000;
+        this.expertise.weaponKnowledge.value = 1000;
+        this.expertise.survivalTechniques.value = 1000;
+      } else if (to === "max") {
+        this.expertise.attack.value = this.expertise.attack.max;
+        this.expertise.weaponKnowledge.value = this.expertise.weaponKnowledge.max;
+        this.expertise.survivalTechniques.value = this.expertise.survivalTechniques.max;
       }
     }
   },
@@ -76,10 +94,13 @@ export default {
       let weaponKnowledge = this.expertise.weaponKnowledge.value * 0.4;
       let survivalTechniques = this.expertise.survivalTechniques.value * 0.4;
 
-      var a = Number.parseInt(attack + weaponKnowledge + survivalTechniques) / 100;
+      var a =
+        Number.parseInt(attack + weaponKnowledge + survivalTechniques) / 100;
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {

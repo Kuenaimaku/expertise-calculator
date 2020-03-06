@@ -4,6 +4,7 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
+    @setValues="setValues"
     name="Rampage"
   >
     <template slot="content">
@@ -58,10 +59,30 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
+      }
+    },
+        setValues(to) {
+      if(to === "zero"){
+        this.expertise.attack.value = 0
+        this.expertise.spin.value = 0
+        this.expertise.rush.value = 0
+        this.expertise.pursuit.value = 0
+      }else if (to === "required"){
+        this.expertise.attack.value = 2000
+        this.expertise.spin.value = 2000
+        this.expertise.rush.value = 2000
+        this.expertise.pursuit.value = 3000
+      }else if (to === "max"){
+        this.expertise.attack.value = this.expertise.attack.max
+        this.expertise.spin.value = this.expertise.spin.max
+        this.expertise.rush.value = this.expertise.rush.max
+        this.expertise.pursuit.value = this.expertise.pursuit.max
       }
     }
   },
@@ -87,6 +108,8 @@ export default {
       let b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {

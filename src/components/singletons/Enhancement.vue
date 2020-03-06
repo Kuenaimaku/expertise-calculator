@@ -4,6 +4,7 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
+    @setValues="setValues"
     name="Enhancement"
   >
     <template slot="content">
@@ -53,10 +54,27 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
+      }
+    },
+        setValues(to) {
+      if(to === "zero"){
+        this.expertise.curativeMagic.value = 0
+        this.expertise.supportMagic.value = 0 
+        this.expertise.bless.value = 0 
+      }else if (to === "required"){
+        this.expertise.curativeMagic.value = 2000 
+        this.expertise.supportMagic.value = 2000 
+        this.expertise.bless.value = 1000 
+      }else if (to === "max"){
+        this.expertise.curativeMagic.value = this.expertise.curativeMagic.max 
+        this.expertise.supportMagic.value = this.expertise.supportMagic.max 
+        this.expertise.bless.value = this.expertise.bless.max 
       }
     }
   },
@@ -82,6 +100,8 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {

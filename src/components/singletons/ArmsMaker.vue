@@ -4,6 +4,7 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
+    @setValues="setValues"
     name="Arms Maker"
   >
     <template slot="content">
@@ -48,10 +49,24 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
+      }
+    },
+    setValues(to) {
+      if(to === "zero"){
+        this.expertise.crafts.value = 0
+        this.expertise.gunKnowledge.value = 0
+      }else if (to === "required"){
+        this.expertise.crafts.value = 1000
+        this.expertise.gunKnowledge.value = 1000
+      }else if (to === "max"){
+        this.expertise.crafts.value = this.expertise.crafts.max
+        this.expertise.gunKnowledge.value = this.expertise.gunKnowledge.max
       }
     }
   },
@@ -73,6 +88,8 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {

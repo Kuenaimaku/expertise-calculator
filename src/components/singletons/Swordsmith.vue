@@ -4,6 +4,7 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
+    @setValues="setValues"
     name="Swordsmith"
   >
     <template slot="content">
@@ -48,10 +49,24 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
+      }
+    },
+        setValues(to) {
+      if(to === "zero"){
+        this.expertise.blades.value = 0
+        this.expertise.weaponKnowledge.value = 0
+      }else if (to === "required"){
+        this.expertise.blades.value = 1000
+        this.expertise.weaponKnowledge.value = 2000
+      }else if (to === "max"){
+        this.expertise.blades.value = this.expertise.blades.max
+        this.expertise.weaponKnowledge.value = this.expertise.weaponKnowledge.max
       }
     }
   },
@@ -60,7 +75,7 @@ export default {
       if (!this.hideLocked) return true;
       else if (
         this.expertise.blades.value >= 1000 &&
-        this.expertise.weaponKnowledge.value >= 1000
+        this.expertise.weaponKnowledge.value >= 2000
       )
         return true;
       else return false;
@@ -73,6 +88,8 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
