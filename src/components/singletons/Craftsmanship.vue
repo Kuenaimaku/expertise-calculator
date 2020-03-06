@@ -4,6 +4,7 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
+    @setValues="setValues"
     name="Craftsmanship"
   >
     <template slot="content">
@@ -53,10 +54,26 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
+      }
+    },
+    setValues(to) {
+      if(to === "zero"){
+        this.expertise.creation.value = 0
+        this.expertise.medicalSciences.value = 0
+        this.expertise.sketching.value = 0
+      }else if (to === "required"){
+        this.expertise.creation.value = 1000
+        this.expertise.medicalSciences.value = 2000
+      }else if (to === "max"){
+        this.expertise.creation.value = this.expertise.creation.max
+        this.expertise.medicalSciences.value = this.expertise.medicalSciences.max
+        this.expertise.sketching.value = this.expertise.sketching.max
       }
     }
   },
@@ -79,6 +96,8 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {

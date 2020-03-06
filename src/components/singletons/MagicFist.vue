@@ -4,6 +4,7 @@
     :options="this.options"
     :visible="isVisible"
     :classRank="classRank"
+    @setValues="setValues"
     name="Magic Fist"
   >
     <template slot="content">
@@ -53,10 +54,27 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
+      }
+    },
+    setValues(to) {
+      if (to === "zero") {
+        this.expertise.rush.value = 0;
+        this.expertise.destructionMagic.value = 0;
+        this.expertise.magicControl.value = 0;
+      } else if (to === "required") {
+        this.expertise.rush.value = 1000;
+        this.expertise.destructionMagic.value = 1000;
+        this.expertise.magicControl.value = 1000;
+      } else if (to === "max") {
+        this.expertise.rush.value = this.expertise.rush.max;
+        this.expertise.destructionMagic.value = this.expertise.destructionMagic.max;
+        this.expertise.magicControl.value = this.expertise.magicControl.max;
       }
     }
   },
@@ -80,6 +98,8 @@ export default {
       var b = a.toString();
       if (a === 0) {
         return "Class 0 Rank 0";
+      } else if (a >= 100) {
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {

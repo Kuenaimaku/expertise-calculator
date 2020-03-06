@@ -23,8 +23,13 @@
             </b-tabs>
           </div>
           <div class="column is-three-fifths">
-            <div class="is-sticky">
-              <h2 class="title is-2">Summary</h2>
+            <div :class="isStickySummary">
+              <b-field grouped>
+                <template slot="label">
+                  <h2 class="title is-2 is-label">Summary</h2>
+                </template>
+                  <b-switch size="is-small" v-model="stickySummary">Sticky</b-switch>
+              </b-field>
               <div class="box">
                 <h4 class="title is-4">Expertise Limit</h4>
                 <b-progress
@@ -95,9 +100,10 @@ export default {
   data() {
     return {
       activeTab: 0,
+      stickySummary: true,
       expertiseFloor: 17000,
       options: {},
-      expertise: []
+      expertise: {}
     };
   },
   created() {
@@ -134,6 +140,10 @@ export default {
         e += v.value;
       });
       return e;
+    },
+    isStickySummary() {
+      if(this.stickySummary) return "is-sticky"
+      return ""
     },
     progressType() {
       if (this.currentExpertise <= this.expertiseFloor + this.bonusExpertise)
@@ -248,4 +258,9 @@ section.tab-content {
   position: sticky;
   top: 2vh;
 }
+
+.is-label {
+  margin-right: 1rem;
+}
+
 </style>
