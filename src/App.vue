@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">Expertise Calculator</h1>
-          <p class="subtitle">For REImagine</p>
+          <p class="subtitle">For ReIMAGINE</p>
         </div>
       </div>
     </section>
