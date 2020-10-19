@@ -1,5 +1,9 @@
 # expertise-calculator
 
+Expertise Calculator for REImagine. Create and share setups.
+
+[Live version here](https://expertise.kuenaimaku.com/)
+
 ## Project setup
 ```
 npm install
