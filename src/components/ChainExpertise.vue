@@ -3,8 +3,8 @@
     <b-collapse class="card" v-if="visible" :open="false">
       <div slot="trigger" slot-scope="props" class="card-header" role="button">
         <p class="card-header-title">
-          <span class="option-title">{{name}}</span>
-          - {{classRank}}
+          <span class="option-title">{{ name }}</span>
+          - {{ classRank }}
         </p>
         <a class="card-header-icon">
           Details
@@ -17,9 +17,18 @@
         </div>
       </div>
       <footer class="card-footer">
-        <a href="#" class="card-footer-item" @click.prevent="setValues('zero')">Set to Zero</a>
-        <a href="#" class="card-footer-item" @click.prevent="setValues('required')">Set to Required</a>
-        <a href="#" class="card-footer-item" @click.prevent="setValues('max')">Set to Max</a>
+        <a href="#" class="card-footer-item" @click.prevent="setValues('zero')"
+          >Set to Zero</a
+        >
+        <a
+          href="#"
+          class="card-footer-item"
+          @click.prevent="setValues('required')"
+          >Set to Required</a
+        >
+        <a href="#" class="card-footer-item" @click.prevent="setValues('max')"
+          >Set to Max</a
+        >
       </footer>
     </b-collapse>
   </div>
@@ -30,22 +39,22 @@ export default {
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     visible: {
       type: Boolean,
-      required: true
+      required: true,
     },
     name: {
-      type: String
+      type: String,
     },
     classRank: {
-      type: String
-    }
+      type: String,
+    },
   },
   methods: {
     parseExpertise(amount) {
@@ -54,7 +63,7 @@ export default {
       if (a === 0) {
         return "Class 0 Rank 0";
       } else if (a >= 100) {
-        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
@@ -65,13 +74,12 @@ export default {
       this.$emit("setValues", to);
     },
   },
-  computed: {
-  },
+  computed: {},
   data() {
     return {
-      hideLocked: false
+      hideLocked: false,
     };
-  }
+  },
 };
 </script>
 

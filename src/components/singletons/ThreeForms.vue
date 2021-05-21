@@ -8,31 +8,51 @@
     name="Mastery of the Three Forms of Life"
   >
     <template slot="content">
-      <p><span class="option-title">Requirement to Unlock</span>: Level 98+, Act XX Clear, Complete various quests.</p>
+      <p>
+        <span class="option-title">Requirement to Unlock</span>: Level 98+, Act
+        XX Clear, Complete various quests.
+      </p>
       <p>1-0 Skill is unlocked by clearing Act XX.</p>
-      <p>1-2 Skill is unlocked by completing the Mastery of Three Forms of Life (1) quest from Saint Germain</p>
-      <p>1-4 Skill is unlocked by completing the Mastery of Three Forms of Life (2) quest from Saint Germain</p>
-      <p>1-6 Skill is unlocked by completing the Mastery of Three Forms of Life (3) quest from the Slime in Home 2's Residential Area</p>
+      <p>
+        1-2 Skill is unlocked by completing the Mastery of Three Forms of Life
+        (1) quest from Saint Germain
+      </p>
+      <p>
+        1-4 Skill is unlocked by completing the Mastery of Three Forms of Life
+        (2) quest from Saint Germain
+      </p>
+      <p>
+        1-6 Skill is unlocked by completing the Mastery of Three Forms of Life
+        (3) quest from the Slime in Home 2's Residential Area
+      </p>
       <p>All three quests have a Level 98+ requirement.</p>
       <p>
         <span class="option-title">Weapon Knowledge</span>:
-        <span class="option-title">25%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.weaponKnowledge.value * 0.25)}})
+        <span class="option-title">20%</span>
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.weaponKnowledge.value * 0.2)
+        }})
       </p>
       <p>
         <span class="option-title">Gun Knowledge</span>:
-        <span class="option-title">25%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.gunKnowledge.value * 0.25)}})
+        <span class="option-title">20%</span>
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.gunKnowledge.value * 0.2)
+        }})
       </p>
       <p>
         <span class="option-title">Magic Control</span>:
-        <span class="option-title">25%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.magicControl.value * 0.25)}})
+        <span class="option-title">20%</span>
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.magicControl.value * 0.2)
+        }})
       </p>
       <p>
         <span class="option-title">Bless</span>:
-        <span class="option-title">25%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.bless.value * 0.25)}})
+        <span class="option-title">20%</span>
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.bless.value * 0.2)
+        }})
       </p>
     </template>
   </chain-expertise>
@@ -43,21 +63,21 @@ import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
   name: "MasteryOfTheThreeFormsOfLife",
   components: {
-    ChainExpertise
+    ChainExpertise,
   },
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     hideLocked: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     parseExpertise(amount) {
@@ -66,22 +86,22 @@ export default {
       if (a === 0) {
         return "Class 0 Rank 0";
       } else if (a >= 100) {
-        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
     },
-        setValues(to) {
-      if(to === "zero"){
-        this.options.level.value = 1
-      }else if (to === "required"){
-        this.options.level.value = 98
-      }else if (to === "max"){
-        this.options.level.value = 99
+    setValues(to) {
+      if (to === "zero") {
+        this.options.level.value = 1;
+      } else if (to === "required") {
+        this.options.level.value = 98;
+      } else if (to === "max") {
+        this.options.level.value = 99;
       }
-    }
+    },
   },
   computed: {
     isVisible() {
@@ -90,10 +110,10 @@ export default {
       else return false;
     },
     classRank() {
-      let weaponKnowledge = this.expertise.weaponKnowledge.value * 0.25;
-      let gunKnowledge = this.expertise.gunKnowledge.value * 0.25;
-      let magicControl = this.expertise.magicControl.value * 0.25;
-      let bless = this.expertise.bless.value * 0.25;
+      let weaponKnowledge = this.expertise.weaponKnowledge.value * 0.2;
+      let gunKnowledge = this.expertise.gunKnowledge.value * 0.2;
+      let magicControl = this.expertise.magicControl.value * 0.2;
+      let bless = this.expertise.bless.value * 0.2;
 
       var a =
         Number.parseInt(
@@ -103,13 +123,13 @@ export default {
       if (a === 0) {
         return "Class 0 Rank 0";
       } else if (a >= 100) {
-        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
-  }
+    },
+  },
 };
 </script>

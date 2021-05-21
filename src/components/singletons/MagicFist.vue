@@ -11,17 +11,24 @@
       <p>
         <span class="option-title">Rush</span>: minimum Class 1 Rank 0.
         <span class="option-title">30%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.rush.value * 0.3)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.rush.value * 0.3)
+        }})
       </p>
       <p>
-        <span class="option-title">Destruction Magic</span>: minimum Class 1 Rank 0.
+        <span class="option-title">Destruction Magic</span>: minimum Class 1
+        Rank 0.
         <span class="option-title">30%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.destructionMagic.value * 0.3)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.destructionMagic.value * 0.3)
+        }})
       </p>
       <p>
         <span class="option-title">Magic Control</span>: minimum Class 1 Rank 0.
         <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.magicControl.value * 0.2)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.magicControl.value * 0.2)
+        }})
       </p>
     </template>
   </chain-expertise>
@@ -32,21 +39,21 @@ import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
   name: "MagicFist",
   components: {
-    ChainExpertise
+    ChainExpertise,
   },
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     hideLocked: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     parseExpertise(amount) {
@@ -76,7 +83,7 @@ export default {
         this.expertise.destructionMagic.value = this.expertise.destructionMagic.max;
         this.expertise.magicControl.value = this.expertise.magicControl.max;
       }
-    }
+    },
   },
   computed: {
     isVisible() {
@@ -105,7 +112,7 @@ export default {
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
-  }
+    },
+  },
 };
 </script>

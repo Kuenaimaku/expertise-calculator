@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot v-if="$slots.title" name="title"/>
+    <slot v-if="$slots.title" name="title" />
     <template v-else>{{ title }}</template>
     <b-field>
       <p class="control" @click="stepLeft(step2)">
@@ -13,7 +13,12 @@
           <b-icon icon="chevron-left"></b-icon>
         </b-button>
       </p>
-      <b-input type="number" expanded :editable="editable" v-model.number="computedValue"></b-input>
+      <b-input
+        type="number"
+        expanded
+        :editable="editable"
+        v-model.number="computedValue"
+      ></b-input>
       <p class="control" @click="stepRight(step1)">
         <b-button type="is-info" :disabled="disabledMax">
           <b-icon icon="chevron-right"></b-icon>
@@ -32,7 +37,7 @@
 export default {
   data() {
     return {
-      newValue: !isNaN(this.value) ? this.value : parseFloat(this.min) || 0
+      newValue: !isNaN(this.value) ? this.value : parseFloat(this.min) || 0,
     };
   },
   props: {
@@ -41,28 +46,28 @@ export default {
     },
     step1: {
       type: Number,
-      required: true
+      required: true,
     },
     step2: {
       type: Number,
-      required: true
+      required: true,
     },
     min: {
       type: Number,
-      required: false
+      required: false,
     },
     max: {
       type: Number,
-      required: false
+      required: false,
     },
     value: {
       type: Number,
-      required: false
+      required: false,
     },
     editable: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   methods: {
     stepLeft(amount) {
@@ -84,7 +89,7 @@ export default {
         _value = this.computedValue + amount;
       }
       this.computedValue = _value;
-    }
+    },
   },
   computed: {
     disabledMin() {
@@ -104,8 +109,8 @@ export default {
         }
         this.newValue = newValue;
         this.$emit("input", newValue);
-      }
-    }
+      },
+    },
   },
   watch: {
     /**
@@ -114,8 +119,8 @@ export default {
      */
     value(value) {
       this.newValue = value;
-    }
-  }
+    },
+  },
 };
 </script>
 

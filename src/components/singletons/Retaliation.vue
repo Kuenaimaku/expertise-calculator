@@ -11,17 +11,25 @@
       <p>
         <span class="option-title">Attack</span>: minimum Class 2 Rank 0.
         <span class="option-title">20%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.attack.value * 0.2)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.attack.value * 0.2)
+        }})
       </p>
       <p>
-        <span class="option-title">Weapon Knowledge</span>: minimum Class 1 Rank 0.
+        <span class="option-title">Weapon Knowledge</span>: minimum Class 1 Rank
+        0.
         <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.weaponKnowledge.value * 0.4)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.weaponKnowledge.value * 0.4)
+        }})
       </p>
       <p>
-        <span class="option-title">Survival Techniques</span>: minimum Class 1 Rank 0
+        <span class="option-title">Survival Techniques</span>: minimum Class 1
+        Rank 0
         <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.survivalTechniques.value * 0.4)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.survivalTechniques.value * 0.4)
+        }})
       </p>
     </template>
   </chain-expertise>
@@ -32,21 +40,21 @@ import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
   name: "Retaliation",
   components: {
-    ChainExpertise
+    ChainExpertise,
   },
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     hideLocked: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     parseExpertise(amount) {
@@ -76,7 +84,7 @@ export default {
         this.expertise.weaponKnowledge.value = this.expertise.weaponKnowledge.max;
         this.expertise.survivalTechniques.value = this.expertise.survivalTechniques.max;
       }
-    }
+    },
   },
   computed: {
     isVisible() {
@@ -106,7 +114,7 @@ export default {
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
-  }
+    },
+  },
 };
 </script>

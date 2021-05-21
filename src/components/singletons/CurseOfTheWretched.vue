@@ -9,24 +9,33 @@
   >
     <template slot="content">
       <p>
-        <span class="option-title">Destruction Magic</span>: minimum Class 1 Rank 0.
+        <span class="option-title">Destruction Magic</span>: minimum Class 1
+        Rank 0.
         <span class="option-title">10%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.destructionMagic.value * 0.1)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.destructionMagic.value * 0.1)
+        }})
       </p>
       <p>
         <span class="option-title">Curse Magic</span>: minimum Class 2 Rank 0.
         <span class="option-title">50%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.curseMagic.value * 0.5)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.curseMagic.value * 0.5)
+        }})
       </p>
       <p>
         <span class="option-title">Magic Control</span>: minimum Class 1 Rank 0.
         <span class="option-title">20%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.magicControl.value * 0.2)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.magicControl.value * 0.2)
+        }})
       </p>
       <p>
         <span class="option-title">Bless</span>: minimum Class 1 Rank 0.
         <span class="option-title">20%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.bless.value * 0.2)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.bless.value * 0.2)
+        }})
       </p>
     </template>
   </chain-expertise>
@@ -37,21 +46,21 @@ import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
   name: "CurseOfTheWretched",
   components: {
-    ChainExpertise
+    ChainExpertise,
   },
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     hideLocked: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     parseExpertise(amount) {
@@ -84,7 +93,7 @@ export default {
         this.expertise.magicControl.value = this.expertise.magicControl.max;
         this.expertise.bless.value = this.expertise.bless.max;
       }
-    }
+    },
   },
   computed: {
     isVisible() {
@@ -117,7 +126,7 @@ export default {
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
-  }
+    },
+  },
 };
 </script>
