@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-card" style="min-width:680px">
+  <div class="modal-card" style="min-width: 680px">
     <header class="modal-card-head">
       <p class="modal-card-title">Share your Build</p>
     </header>
@@ -9,7 +9,13 @@
       </b-field>
     </section>
     <footer class="modal-card-foot">
-      <b-button class="button" expanded type="is-primary" @click="$parent.close()">Close</b-button>
+      <b-button
+        class="button"
+        expanded
+        type="is-primary"
+        @click="$parent.close()"
+        >Close</b-button
+      >
     </footer>
   </div>
 </template>
@@ -20,31 +26,28 @@ export default {
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      password: ""
+      password: "",
     };
   },
   computed: {
     link() {
-      let params = dataService.toQueryParams(
-        this.expertise,
-        this.options
-      );
+      let params = dataService.toQueryParams(this.expertise, this.options);
       if (params !== "") {
         return "https://expertise.kuenaimaku.com?" + params.toString();
       } else {
         return "https://expertise.kuenaimaku.com";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

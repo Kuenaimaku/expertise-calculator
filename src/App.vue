@@ -23,9 +23,18 @@
         <div class="columns">
           <div class="column is-two-fifths">
             <h2 class="title is-2">Input</h2>
-            <b-tabs type="is-boxed" size="is-medium" expanded v-model="activeTab">
+            <b-tabs
+              type="is-boxed"
+              size="is-medium"
+              expanded
+              v-model="activeTab"
+            >
               <b-tab-item label="Expertise">
-                <expertise v-for="item in expertise" :key="item.queryParam" :expertise="item" />
+                <expertise
+                  v-for="item in expertise"
+                  :key="item.queryParam"
+                  :expertise="item"
+                />
               </b-tab-item>
               <b-tab-item label="Options">
                 <options :options="this.options" />
@@ -38,7 +47,9 @@
                 <template slot="label">
                   <h2 class="title is-2 is-label">Summary</h2>
                 </template>
-                  <b-switch size="is-small" v-model="stickySummary">Sticky</b-switch>
+                <b-switch size="is-small" v-model="stickySummary"
+                  >Sticky</b-switch
+                >
               </b-field>
               <div class="box">
                 <h4 class="title is-4">Expertise Limit</h4>
@@ -48,12 +59,18 @@
                   :value="currentExpertise"
                   :max="expertiseFloor + bonusExpertise"
                   show-value
-                >{{currentExpertise}}/{{(expertiseFloor + bonusExpertise)}}</b-progress>
+                  >{{ currentExpertise }}/{{
+                    expertiseFloor + bonusExpertise
+                  }}</b-progress
+                >
                 <section class="section box">
                   <expertise-list :expertise="Object.values(this.expertise)" />
                 </section>
                 <section class="section box">
-                  <chain-expertise-list :expertise="this.expertise" :options="this.options" />
+                  <chain-expertise-list
+                    :expertise="this.expertise"
+                    :options="this.options"
+                  />
                 </section>
               </div>
             </div>
@@ -69,10 +86,17 @@
             size="is-large"
             icon-left="link"
             @click="showGenerateLinkModal"
-          >Generate Link</b-button>
+            >Generate Link</b-button
+          >
         </p>
         <p class="control">
-          <b-button type="is-primary" size="is-large" icon-left="refresh" @click="resetValues">Reset</b-button>
+          <b-button
+            type="is-primary"
+            size="is-large"
+            icon-left="refresh"
+            @click="resetValues"
+            >Reset</b-button
+          >
         </p>
       </b-field>
     </section>
@@ -81,7 +105,10 @@
         <p>
           <strong>Expertise Calculator</strong> by
           <a href="https://github.com/kuenaimaku">Kuenaimaku</a>. The
-          <a href="https://github.com/Kuenaimaku/expertise-calculator">source code</a> is licensed
+          <a href="https://github.com/Kuenaimaku/expertise-calculator"
+            >source code</a
+          >
+          is licensed
           <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
         </p>
       </div>
@@ -105,7 +132,7 @@ export default {
     Expertise,
     ExpertiseList,
     Options,
-    ChainExpertiseList
+    ChainExpertiseList,
   },
   data() {
     return {
@@ -113,7 +140,7 @@ export default {
       stickySummary: true,
       expertiseFloor: 17000,
       options: {},
-      expertise: {}
+      expertise: {},
     };
   },
   created() {
@@ -132,28 +159,28 @@ export default {
         hasModalCard: true,
         props: {
           options: this.options,
-          expertise: this.expertise
-        }
+          expertise: this.expertise,
+        },
       });
     },
     resetValues() {
       let hydratedValues = dataService.reset();
       this.expertise = hydratedValues.expertise;
       this.options = hydratedValues.options;
-    }
+    },
   },
   computed: {
     currentExpertise() {
       const values = Object.values(this.expertise);
       let e = 0;
-      values.forEach(function(v) {
+      values.forEach(function (v) {
         e += v.value;
       });
       return e;
     },
     isStickySummary() {
-      if(this.stickySummary) return "is-sticky"
-      return ""
+      if (this.stickySummary) return "is-sticky";
+      return "";
     },
     progressType() {
       if (this.currentExpertise <= this.expertiseFloor + this.bonusExpertise)
@@ -163,7 +190,7 @@ export default {
     bonusExpertise() {
       const values = Object.values(this.options);
       let e = 0;
-      values.forEach(function(v) {
+      values.forEach(function (v) {
         e += v.value;
       });
       e -= this.options.level.value;
@@ -174,8 +201,8 @@ export default {
         e += 1000;
       }
       return e;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -193,44 +220,44 @@ $twitter-invert: findColorInvert($twitter);
 $colors: (
   "white": (
     $white,
-    $black
+    $black,
   ),
   "black": (
     $black,
-    $white
+    $white,
   ),
   "light": (
     $light,
-    $light-invert
+    $light-invert,
   ),
   "dark": (
     $dark,
-    $dark-invert
+    $dark-invert,
   ),
   "primary": (
     $primary,
-    $primary-invert
+    $primary-invert,
   ),
   "info": (
     $info,
-    $info-invert
+    $info-invert,
   ),
   "success": (
     $success,
-    $success-invert
+    $success-invert,
   ),
   "warning": (
     $warning,
-    $warning-invert
+    $warning-invert,
   ),
   "danger": (
     $danger,
-    $danger-invert
+    $danger-invert,
   ),
   "twitter": (
     $twitter,
-    $twitter-invert
-  )
+    $twitter-invert,
+  ),
 );
 
 // Links
@@ -272,5 +299,4 @@ section.tab-content {
 .is-label {
   margin-right: 1rem;
 }
-
 </style>

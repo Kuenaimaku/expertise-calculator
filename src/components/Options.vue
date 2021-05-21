@@ -7,7 +7,8 @@
         :step1="1"
         :step2="10"
         :min="1"
-        :max="99">
+        :max="99"
+      >
         <template slot="title">
           <span class="has-text-primary option-title">Level</span>
         </template>
@@ -42,8 +43,16 @@
         <template slot="label">
           <span class="has-text-primary option-title">
             Tier 1 Demon Digitalize
-            <b-tooltip type="is-dark" multilined label="Races: Divines, Wild Birds, Earth Elements, Fairies, Beasts, Elementals, Brutes, Evil Dragons, Haunts">
-              <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+            <b-tooltip
+              type="is-dark"
+              multilined
+              label="Races: Divines, Wild Birds, Earth Elements, Fairies, Beasts, Elementals, Brutes, Evil Dragons, Haunts"
+            >
+              <b-icon
+                size="is-small"
+                type="is-dark"
+                icon="help-circle-outline"
+              />
             </b-tooltip>
           </span>
         </template>
@@ -60,8 +69,15 @@
         <template slot="label">
           <span class="has-text-primary option-title">
             Tier 2 Demon Digitalize
-            <b-tooltip type="is-dark" label="Races: Raptor, Yoma, Nocturne, Wilder, Dragon King, Femme, Foul">
-              <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+            <b-tooltip
+              type="is-dark"
+              label="Races: Raptor, Yoma, Nocturne, Wilder, Dragon King, Femme, Foul"
+            >
+              <b-icon
+                size="is-small"
+                type="is-dark"
+                icon="help-circle-outline"
+              />
             </b-tooltip>
           </span>
         </template>
@@ -78,8 +94,15 @@
         <template slot="label">
           <span class="has-text-primary option-title">
             Tier 3 Demon Digitalize
-            <b-tooltip type="is-dark" label="Races: Fallen Angel, Dragon, Avian, Evil Demon, Godly Beast, Holy Beast">
-              <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
+            <b-tooltip
+              type="is-dark"
+              label="Races: Fallen Angel, Dragon, Avian, Evil Demon, Godly Beast, Holy Beast"
+            >
+              <b-icon
+                size="is-small"
+                type="is-dark"
+                icon="help-circle-outline"
+              />
             </b-tooltip>
           </span>
         </template>
@@ -99,7 +122,12 @@
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS1.value" true-value=3000 false-value=0 />
+        <b-checkbox
+          size="is-medium"
+          v-model.number="options.levelTenDDS1.value"
+          true-value="3000"
+          false-value="0"
+        />
       </b-field>
       <b-field>
         <p class="control option-title">
@@ -108,7 +136,12 @@
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS2.value" true-value=3000 false-value=0 />
+        <b-checkbox
+          size="is-medium"
+          v-model.number="options.levelTenDDS2.value"
+          true-value="3000"
+          false-value="0"
+        />
       </b-field>
       <b-field>
         <p class="control option-title">
@@ -117,16 +150,29 @@
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS3.value" true-value=3000 false-value=0 />
+        <b-checkbox
+          size="is-medium"
+          v-model.number="options.levelTenDDS3.value"
+          true-value="3000"
+          false-value="0"
+        />
       </b-field>
       <b-field>
         <p class="control option-title">
           Level 10 Demon Digitalize: Group 4
-          <b-tooltip type="is-dark" label="Races: Guardian, Earth Mother, Nation Ruler">
+          <b-tooltip
+            type="is-dark"
+            label="Races: Guardian, Earth Mother, Nation Ruler"
+          >
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS4.value" true-value=3000 false-value=0 />
+        <b-checkbox
+          size="is-medium"
+          v-model.number="options.levelTenDDS4.value"
+          true-value="3000"
+          false-value="0"
+        />
       </b-field>
       <b-field>
         <p class="control option-title">
@@ -135,7 +181,12 @@
             <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
           </b-tooltip>
         </p>
-        <b-checkbox size="is-medium" v-model.number="options.levelTenDDS5.value" true-value=3000 false-value=0 />
+        <b-checkbox
+          size="is-medium"
+          v-model.number="options.levelTenDDS5.value"
+          true-value="3000"
+          false-value="0"
+        />
       </b-field>
       <b-field>
         <template slot="label">
@@ -163,7 +214,7 @@
           v-model="options.saintGermain.value"
         />
       </b-field>
-            <b-field>
+      <!-- <b-field>
         <template slot="label">
           <span class="has-text-primary option-title">Fighting Spirits</span>
         </template>
@@ -175,7 +226,7 @@
           expanded
           v-model="options.fightingSpirits.value"
         />
-      </b-field>
+      </b-field> -->
     </section>
   </div>
 </template>
@@ -185,18 +236,17 @@ import MultistepNumberInput from "./MultistepNumberInput";
 export default {
   name: "Options",
   components: {
-    MultistepNumberInput
+    MultistepNumberInput,
   },
   props: {
     options: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
-    return {
-    };
-  }
+    return {};
+  },
 };
 </script>
 

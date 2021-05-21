@@ -11,17 +11,23 @@
       <p>
         <span class="option-title">Shot</span>: minimum Class 2 Rank 0.
         <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.shot.value * 0.4)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.shot.value * 0.4)
+        }})
       </p>
       <p>
         <span class="option-title">Demonology</span>: minimum Class 2 Rank 0.
         <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.demonology.value * 0.4)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.demonology.value * 0.4)
+        }})
       </p>
       <p>
         <span class="option-title">Gun Knowledge</span>: minimum Class 1 Rank 0
         <span class="option-title">20%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.gunKnowledge.value * 0.2)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.gunKnowledge.value * 0.2)
+        }})
       </p>
     </template>
   </chain-expertise>
@@ -32,21 +38,21 @@ import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
   name: "Sharpshooter",
   components: {
-    ChainExpertise
+    ChainExpertise,
   },
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     hideLocked: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     parseExpertise(amount) {
@@ -76,7 +82,7 @@ export default {
         this.expertise.demonology.value = this.expertise.demonology.max;
         this.expertise.gunKnowledge.value = this.expertise.gunKnowledge.max;
       }
-    }
+    },
   },
   computed: {
     isVisible() {
@@ -105,7 +111,7 @@ export default {
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
-  }
+    },
+  },
 };
 </script>

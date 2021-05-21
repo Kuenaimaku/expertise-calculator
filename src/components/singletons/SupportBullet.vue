@@ -11,17 +11,23 @@
       <p>
         <span class="option-title">Rapid</span>: minimum Class 2 Rank 0.
         <span class="option-title">20%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.rapid.value * 0.3)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.rapid.value * 0.3)
+        }})
       </p>
       <p>
         <span class="option-title">Support Magic</span>: minimum Class 2 Rank 0.
         <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.supportMagic.value * 0.4)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.supportMagic.value * 0.4)
+        }})
       </p>
       <p>
         <span class="option-title">Bless</span>: minimum Class 2 Rank 0
         <span class="option-title">40%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.bless.value * 0.4)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.bless.value * 0.4)
+        }})
       </p>
     </template>
   </chain-expertise>
@@ -32,21 +38,21 @@ import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
   name: "SupportBullet",
   components: {
-    ChainExpertise
+    ChainExpertise,
   },
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     hideLocked: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     parseExpertise(amount) {
@@ -76,7 +82,7 @@ export default {
         this.expertise.supportMagic.value = this.expertise.supportMagic.max;
         this.expertise.bless.value = this.expertise.bless.max;
       }
-    }
+    },
   },
   computed: {
     isVisible() {
@@ -105,7 +111,7 @@ export default {
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
-  }
+    },
+  },
 };
 </script>

@@ -11,12 +11,16 @@
       <p>
         <span class="option-title">Crafts</span>: minimum Class 1 Rank 0.
         <span class="option-title">80%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.crafts.value * 0.8)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.crafts.value * 0.8)
+        }})
       </p>
       <p>
         <span class="option-title">Gun Knowledge</span>: minimum Class 2 Rank 0.
         <span class="option-title">20%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.gunKnowledge.value * 0.2)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.gunKnowledge.value * 0.2)
+        }})
       </p>
     </template>
   </chain-expertise>
@@ -27,21 +31,21 @@ import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
   name: "ArmsMaker",
   components: {
-    ChainExpertise
+    ChainExpertise,
   },
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     hideLocked: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     parseExpertise(amount) {
@@ -50,7 +54,7 @@ export default {
       if (a === 0) {
         return "Class 0 Rank 0";
       } else if (a >= 100) {
-        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
@@ -58,17 +62,17 @@ export default {
       }
     },
     setValues(to) {
-      if(to === "zero"){
-        this.expertise.crafts.value = 0
-        this.expertise.gunKnowledge.value = 0
-      }else if (to === "required"){
-        this.expertise.crafts.value = 1000
-        this.expertise.gunKnowledge.value = 1000
-      }else if (to === "max"){
-        this.expertise.crafts.value = this.expertise.crafts.max
-        this.expertise.gunKnowledge.value = this.expertise.gunKnowledge.max
+      if (to === "zero") {
+        this.expertise.crafts.value = 0;
+        this.expertise.gunKnowledge.value = 0;
+      } else if (to === "required") {
+        this.expertise.crafts.value = 1000;
+        this.expertise.gunKnowledge.value = 1000;
+      } else if (to === "max") {
+        this.expertise.crafts.value = this.expertise.crafts.max;
+        this.expertise.gunKnowledge.value = this.expertise.gunKnowledge.max;
       }
-    }
+    },
   },
   computed: {
     isVisible() {
@@ -89,13 +93,13 @@ export default {
       if (a === 0) {
         return "Class 0 Rank 0";
       } else if (a >= 100) {
-        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
-  }
+    },
+  },
 };
 </script>

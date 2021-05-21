@@ -11,17 +11,24 @@
       <p>
         <span class="option-title">Creation</span>: minimum Class 1 Rank 0.
         <span class="option-title">60%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.creation.value * 0.6)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.creation.value * 0.6)
+        }})
       </p>
       <p>
-        <span class="option-title">Medical Sciences</span>: minimum Class 2 Rank 0.
+        <span class="option-title">Medical Sciences</span>: minimum Class 2 Rank
+        0.
         <span class="option-title">20%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.medicalSciences.value * 0.2)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.medicalSciences.value * 0.2)
+        }})
       </p>
-            <p>
+      <p>
         <span class="option-title">Sketching</span>:
         <span class="option-title">20%</span>
-        is converted to Chain Expertise ({{parseExpertise(expertise.sketching.value * 0.2)}})
+        is converted to Chain Expertise ({{
+          parseExpertise(expertise.sketching.value * 0.2)
+        }})
       </p>
     </template>
   </chain-expertise>
@@ -32,21 +39,21 @@ import ChainExpertise from "@/components/ChainExpertise.vue";
 export default {
   name: "Craftsmanship",
   components: {
-    ChainExpertise
+    ChainExpertise,
   },
   props: {
     expertise: {
       type: Object,
-      required: true
+      required: true,
     },
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     hideLocked: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     parseExpertise(amount) {
@@ -55,7 +62,7 @@ export default {
       if (a === 0) {
         return "Class 0 Rank 0";
       } else if (a >= 100) {
-        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
@@ -63,19 +70,19 @@ export default {
       }
     },
     setValues(to) {
-      if(to === "zero"){
-        this.expertise.creation.value = 0
-        this.expertise.medicalSciences.value = 0
-        this.expertise.sketching.value = 0
-      }else if (to === "required"){
-        this.expertise.creation.value = 1000
-        this.expertise.medicalSciences.value = 2000
-      }else if (to === "max"){
-        this.expertise.creation.value = this.expertise.creation.max
-        this.expertise.medicalSciences.value = this.expertise.medicalSciences.max
-        this.expertise.sketching.value = this.expertise.sketching.max
+      if (to === "zero") {
+        this.expertise.creation.value = 0;
+        this.expertise.medicalSciences.value = 0;
+        this.expertise.sketching.value = 0;
+      } else if (to === "required") {
+        this.expertise.creation.value = 1000;
+        this.expertise.medicalSciences.value = 2000;
+      } else if (to === "max") {
+        this.expertise.creation.value = this.expertise.creation.max;
+        this.expertise.medicalSciences.value = this.expertise.medicalSciences.max;
+        this.expertise.sketching.value = this.expertise.sketching.max;
       }
-    }
+    },
   },
   computed: {
     isVisible() {
@@ -97,13 +104,13 @@ export default {
       if (a === 0) {
         return "Class 0 Rank 0";
       } else if (a >= 100) {
-        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
-  }
+    },
+  },
 };
 </script>

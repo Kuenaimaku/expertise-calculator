@@ -8,7 +8,7 @@
     :editable="false"
   >
     <template slot="title">
-      <span class="has-text-primary option-title">{{expertise.name}}</span>
+      <span class="has-text-primary option-title">{{ expertise.name }}</span>
       <b-tooltip
         v-if="expertise.tooltipMultiline && expertise.tooltip !== null"
         multilined
@@ -26,7 +26,7 @@
       >
         <b-icon size="is-small" type="is-dark" icon="help-circle-outline" />
       </b-tooltip>
-      <span>{{classRank(expertise.value)}}</span>
+      <span>{{ classRank(expertise.value) }}</span>
     </template>
   </multistep-number-input>
 </template>
@@ -41,11 +41,11 @@ export default {
   props: {
     expertise: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
-    MultistepNumberInput
+    MultistepNumberInput,
   },
   methods: {
     classRank(amount) {
@@ -54,14 +54,14 @@ export default {
       if (a === 0) {
         return "Class 0 Rank 0";
       } else if (a >= 100) {
-        return "Class " +  b.charAt(0) +b.charAt(1) + " Rank " + b.charAt(2);
+        return "Class " + b.charAt(0) + b.charAt(1) + " Rank " + b.charAt(2);
       } else if (a >= 10) {
         return "Class " + b.charAt(0) + " Rank " + b.charAt(1);
       } else {
         return "Class 0 Rank " + b.charAt(0);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
