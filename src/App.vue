@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Navbar></Navbar>
     <section class="hero is-primary is-bold">
       <div class="hero-body">
         <div class="container">
@@ -125,6 +126,7 @@ import Options from "@/components/Options.vue";
 import Expertise from "@/components/Expertise.vue";
 import ExpertiseList from "@/components/layout/ExpertiseList.vue";
 import ChainExpertiseList from "@/components/layout/ChainExpertiseList.vue";
+import Navbar from "@/components/layout/Navbar.vue";
 import GenerateLinkModal from "@/components/GenerateLinkModal.vue";
 export default {
   name: "App",
@@ -133,6 +135,7 @@ export default {
     ExpertiseList,
     Options,
     ChainExpertiseList,
+    Navbar
   },
   data() {
     return {
