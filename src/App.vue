@@ -208,13 +208,25 @@ export default {
 
 <style lang="scss">
 // Import Bulma's core
+@import "~bulma/sass/utilities/initial-variables";
+$lavender: hsl(275, 20%, 50%);
+$lavender-dark: hsl(275, 20%, 40%);
+$primary: $lavender;
+$scheme-main: hsl(275, 5%, 15%);
+$scheme-main-bis:hsl(275, 5%, 12%);
+$scheme-main-ter:hsl(275, 5%, 15%);;
+$body-background-color: hsl(275, 5%, 10%);
+$scheme-invert: hsl(275, 5%, 00%);
+$text: hsl(0, 0%, 80%);
+$text-strong: hsl(0, 0%, 90%);
+$background: hsl(275, 5%, 10%);
+$body-color: hsl(0, 0%, 80%);
 @import "~bulma/sass/utilities/_all";
-
-// Set your colors
-$primary: #8c67ef;
-$primary-invert: findColorInvert($primary);
-$twitter: #4099ff;
-$twitter-invert: findColorInvert($twitter);
+@import "~bulma/sass/base/_all";
+@import "~bulma/sass/elements/_all";
+@import "~bulma/sass/components/_all";
+@import "~bulma/sass/grid/_all";
+@import "~bulma/sass/layout/_all";
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
@@ -253,16 +265,12 @@ $colors: (
   "danger": (
     $danger,
     $danger-invert,
-  ),
-  "twitter": (
-    $twitter,
-    $twitter-invert,
-  ),
+  )
 );
 
 // Links
 $link: $primary;
-$link-invert: $primary-invert;
+$link-invert: $lavender-dark;
 $link-focus-border: $primary;
 
 //footer
@@ -277,8 +285,18 @@ $footer-background-color: $dark-invert;
   color: #222 !important;
 }
 
+.tabs ul{
+  border-bottom-color: #333;
+}
+.tabs.is-boxed li.is-active a{
+  border-color: #333;
+}
+.select select, .textarea, .input, .taginput .taginput-container.is-focusable, .select select:hover, .textarea:hover, .input:hover, .taginput:hover .taginput-container.is-focusable:hover{
+  border-color:#222;
+}
+
 section.tab-content {
-  border: 1px solid #dbdbdb;
+  border: 1px solid #333;
   border-top: 0px;
   border-radius: 6px;
   border-top-left-radius: 0px;
@@ -298,5 +316,10 @@ section.tab-content {
 
 .is-label {
   margin-right: 1rem;
+}
+
+.footer {
+    background-color: #1f1d20;
+    padding: 3rem 1.5rem 6rem;
 }
 </style>
