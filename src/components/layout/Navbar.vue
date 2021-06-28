@@ -6,8 +6,11 @@
 					<span style="color:teal"><b-icon pack="mdi" icon="arm-flex"></b-icon> Expertise</span>
 				</a>
 
-				<a class="navbar-item" href="https://apple.kuenaimaku.com/">
+				<a class="navbar-item" href="https://reimagine.kuenaimaku.com/apples">
 					<span><b-icon pack="mdi" icon="food-apple"></b-icon> Golden Apples</span>
+				</a>
+				<a class="navbar-item" href="https://reimagine.kuenaimaku.com/books">
+					<span><b-icon pack="mdi" icon="book-open-page-variant"></b-icon> Expertise Textbooks</span>
 				</a>
 			</div>
 		</div>
